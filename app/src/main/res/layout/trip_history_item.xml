@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="60dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+
+                    android:src="@color/colorPrimary" />
+
+                <ImageView
+                    android:layout_width="05dp"
+                    android:layout_height="05dp"
+                    android:layout_centerInParent="true"
+
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/white_circle" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rec_gray_curved"
+                android:lines="1"
+                android:paddingLeft="20dp"
+                android:paddingTop="3dp"
+
+                android:paddingBottom="3dp"
+                android:text="Paik para" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_marginRight="10dp">
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerInParent="true"
+
+                    android:layout_gravity="center"
+                    android:layout_marginRight="00dp"
+                    android:src="@drawable/place_holder_red" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rec_gray_curved"
+                android:lines="1"
+                android:paddingLeft="20dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="Paik para" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gray_circle"
+            android:padding="5dp"
+            android:tint="#F0F0F0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_fair"
+            android:textColor="@android:color/black"
+            android:textSize="13dp" />
+
+
+        <ImageView
+            android:id="@+id/img_status"
+            android:layout_width="20dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/missed_call"
+            android:layout_height="20dp"
+             />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

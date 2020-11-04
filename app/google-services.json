@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "719828460734",
+    "firebase_url": "https://dactarbari-ambulance.firebaseio.com",
+    "project_id": "dactarbari-ambulance",
+    "storage_bucket": "dactarbari-ambulance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719828460734:android:8770f7e900bc54f29eaaef",
+        "android_client_info": {
+          "package_name": "com.twopibd.dactarbari.ambulance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719828460734-hqj6d6lp52f280g9j96b9kd5thkue7v0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.twopibd.dactarbari.ambulance",
+            "certificate_hash": "703fc06baa3adfed64d7880706948e88e0869e5d"
+          }
+        },
+        {
+          "client_id": "719828460734-urvhl53lpk3ft5rhppcb9f833gcnphmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQXmplNZMbMjjUMbIXyT-1v960fnSXOb8"
+        },
+        {
+          "current_key": "AIzaSyCTYrAdHSVyJpyOcf8DW9YOrlzYqpls9wo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719828460734-urvhl53lpk3ft5rhppcb9f833gcnphmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719828460734:android:445cd3832e6213759eaaef",
+        "android_client_info": {
+          "package_name": "com.twopibd.dactarbari.ambulance.drivers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719828460734-u4jdcn3mq9ct3t33g7unoeqr1o63l0nd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.twopibd.dactarbari.ambulance.drivers",
+            "certificate_hash": "703fc06baa3adfed64d7880706948e88e0869e5d"
+          }
+        },
+        {
+          "client_id": "719828460734-urvhl53lpk3ft5rhppcb9f833gcnphmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQXmplNZMbMjjUMbIXyT-1v960fnSXOb8"
+        },
+        {
+          "current_key": "AIzaSyCTYrAdHSVyJpyOcf8DW9YOrlzYqpls9wo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719828460734-urvhl53lpk3ft5rhppcb9f833gcnphmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
