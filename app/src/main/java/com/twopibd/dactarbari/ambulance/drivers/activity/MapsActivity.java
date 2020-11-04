@@ -175,12 +175,19 @@ public class MapsActivity extends GPSOpenActivity implements OnMapReadyCallback 
         locatiionRetrivedListener.setMyLocationRetriver_(new locatiionRetrivedListener.myLocationRetriver() {
             @Override
             public Location onLocationretrived(Location location, String address) {
-                Toast.makeText(context, address, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, address, Toast.LENGTH_SHORT).show();
                 if (location != null) {
+
+                 //   Toast.makeText(context, ""+sessionManager.getOnlineVehicle().length(), Toast.LENGTH_LONG).show();
                     if (sessionManager.getOnlineVehicle() != null && sessionManager.getOnlineVehicle().length() > 0) {
                         firebaseDatabase.getReference("ambulanceLatestLocations").child(sessionManager.getOnlineVehicle()).child("lat").setValue(location.getLatitude());
                         firebaseDatabase.getReference("ambulanceLatestLocations").child(sessionManager.getOnlineVehicle()).child("lng").setValue(location.getLongitude());
-                        firebaseDatabase.getReference("ambulanceLatestLocations").child(sessionManager.getOnlineVehicle()).child("city").setValue(address);
+                        firebaseDatabase.getReference("ambulanceLatestLocations").child(sessionManager.getOnlineVehicle()).child("city").setValue(address).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
 
                     // Toast.makeText(context, location.toString(), Toast.LENGTH_SHORT).show();
@@ -545,11 +552,13 @@ public class MapsActivity extends GPSOpenActivity implements OnMapReadyCallback 
                     public void onClick(View v) {
                         //for driver
                         firebaseDatabase.getReference(USER_STATUS).child(userID).child("isRidingNow").setValue(1);
+                        firebaseDatabase.getReference(USER_STATUS).child(userID).child("rideID").setValue(rideID);
                         firebaseDatabase.getReference(USER_STATUS).child(userID).child("currentAmbulance").setValue(sessionManager.getOnlineVehicle());
 
                         //for passenger
                         firebaseDatabase.getReference(USER_STATUS).child(passenegID).child("isRidingNow").setValue(1);
                         firebaseDatabase.getReference(USER_STATUS).child(passenegID).child("currentAmbulance").setValue(sessionManager.getOnlineVehicle());
+                        firebaseDatabase.getReference(USER_STATUS).child(passenegID).child("rideID").setValue(rideID);
 
 
                     }
@@ -1110,7 +1119,7 @@ public class MapsActivity extends GPSOpenActivity implements OnMapReadyCallback 
 
             @Override
             public void onCameraIdle() {
-
+/*
 
                 databaseReference.child(sessionManager.getOnlineVehicle()).child("bearer").setValue((int) mMap.getCameraPosition().bearing);
                 if (mMap.getCameraPosition().target.latitude > 0 && mMap.getCameraPosition().target.longitude > 0) {
@@ -1120,9 +1129,11 @@ public class MapsActivity extends GPSOpenActivity implements OnMapReadyCallback 
                 databaseReference.child(sessionManager.getOnlineVehicle()).child("last_seen").setValue(Calendar.getInstance().getTime().toString());
 
 
-
+ */
 
             }
+
+
             
 
         });
@@ -1139,7 +1150,7 @@ public class MapsActivity extends GPSOpenActivity implements OnMapReadyCallback 
                 CameraUpdate location_ = CameraUpdateFactory.newLatLngZoom(
                         new LatLng(location.getLatitude(), location.getLongitude()), 17);
                 mMap.animateCamera(location_);
-
+/*
                 databaseReference.child(sessionManager.getOnlineVehicle()).child("bearer").setValue((int) mMap.getCameraPosition().bearing);
 
                 if (mMap.getCameraPosition().target.latitude > 0 && mMap.getCameraPosition().target.longitude > 0) {
@@ -1153,6 +1164,8 @@ public class MapsActivity extends GPSOpenActivity implements OnMapReadyCallback 
 
                 //mMap.addMarker(new MarkerOptions().position( new LatLng(location.getLatitude(),location.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker()));
 
+
+ */
 
             }
         });

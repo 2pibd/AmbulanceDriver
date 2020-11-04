@@ -207,6 +207,7 @@ public class RideOnActivity extends GPSOpenActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 tv_from.setText(dataSnapshot.child("from").getValue().toString());
                                 tv_to.setText(dataSnapshot.child("to").getValue().toString());
+                              //  rideID =dataSnapshot.getKey();
                                 Log.i("mkl__1", dataSnapshot.getValue().toString());
                             }
 
@@ -232,6 +233,40 @@ public class RideOnActivity extends GPSOpenActivity {
                             }
                         });
 
+
+
+                        cardRideCompleate.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                relativeDashbody.setVisibility(View.VISIBLE);
+                                view_black_transparent.setVisibility(View.VISIBLE);
+                                tv_total_fair.setText("Total Fair : 450 TK");
+                                tv_total_fair.setVisibility(View.VISIBLE);
+                                tv_pay.setVisibility(View.VISIBLE);
+
+                                tv_pay.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity(new Intent(context, MapsActivity.class));
+                                        finishAffinity();
+
+                                    }
+                                });
+
+                                firebaseDatabase.getReference("ambulance_request").child(rideID).child("hasRideCompleated").setValue(true);
+                                firebaseDatabase.getReference("user_status").child(userID).child("data").child("isRidingNow").setValue(0);
+                                firebaseDatabase.getReference("user_status").child(passengerID).child("data").child("isRidingNow").setValue(0);
+                                // firebaseDatabase.goOffline();
+                                continueBill = false;
+                                cardRideCompleate.setEnabled(false);
+                                cardRideCompleate.setClickable(false);
+                                cardRideCompleate.setAlpha(0.5f);
+
+                            }
+                        });
+
+
                     }
                 } else {
                     Log.i("tmkl", "No data");
@@ -244,6 +279,10 @@ public class RideOnActivity extends GPSOpenActivity {
 
             }
         });
+
+
+
+
         // following block to be deleted
         /*
         firebaseDatabase.getReference("user_status").child(USER_ID).addChildEventListener(new ChildEventListener() {
@@ -583,7 +622,7 @@ public class RideOnActivity extends GPSOpenActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    firebaseDatabase.getReference("ambulance_request").child(userID).child(rideID).child("data").child("hasArrived").setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    firebaseDatabase.getReference("ambulance_request").child(rideID).child("hasArrived").setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(context, "Ambulance has arrived", Toast.LENGTH_SHORT).show();
@@ -601,11 +640,11 @@ public class RideOnActivity extends GPSOpenActivity {
         cardStartTrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseDatabase.getReference("ambulance_request").child(userID).child(rideID).child("data").child("status").setValue("trip_started");
-                firebaseDatabase.getReference("ambulance_request").child(userID).child(rideID).child("data").child("hasTripStarted").setValue(true);
-                firebaseDatabase.getReference("ambulance_request").child(userID).child(rideID).child("data").child("trip_started_time").setValue(Calendar.getInstance().getTime().toString());
-                firebaseDatabase.getReference("ride_history_driver").child(userID).child(rideID).child("distance_covered").setValue(0);
-                firebaseDatabase.getReference("ride_history_driver").child(userID).child(rideID).child("distance_covered").addValueEventListener(new ValueEventListener() {
+                firebaseDatabase.getReference("ambulance_request").child(rideID).child("status").setValue("trip_started");
+                firebaseDatabase.getReference("ambulance_request").child(rideID).child("hasTripStarted").setValue(true);
+                firebaseDatabase.getReference("ambulance_request").child(rideID).child("trip_started_time").setValue(Calendar.getInstance().getTime().toString());
+                firebaseDatabase.getReference("ride_history_driver").child(rideID).child("distance_covered").setValue(0);
+                firebaseDatabase.getReference("ride_history_driver").child(rideID).child("distance_covered").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         //tv_distance.setText(df2.format( dataSnapshot.getValue().toString()));
@@ -647,7 +686,7 @@ public class RideOnActivity extends GPSOpenActivity {
                 String URL = "https://www.google.com/maps/dir/?api=1&travelmode=driving&dir_action=navigate&destination=Mirpur";
                 Uri location = Uri.parse(URL);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
-                startActivity(mapIntent);
+              //  startActivity(mapIntent);
 
             }
         });
